@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>فروشگاه سینما پنبه (Panbeh Shop) | طراحی، برنامه‌نویسی و توسعه نرم‌افزار</title>
-  <meta name="description" content="فروشگاه سینما پنبه (Panbeh Shop) - مرجع تخصصی طراحی، برنامه‌نویسی، تولید نرم‌افزارهای تحت وب و راهکارهای ابری و هوشمند. دارای مجوز رسمی و نماد اعتماد الکترونیکی.">
-  <meta name="keywords" content="سینما پنبه, panbeh shop, طراحی نرم افزار, برنامه نویسی, خدمات نرم افزاری, cinemapluss">
+  <title>فروشگاه سینما پنبه (Panbeh Shop) | خرید اکانت هوش مصنوعی و خدمات نرم‌افزاری</title>
+  <meta name="description" content="فروشگاه اینترنتی سینما پنبه (Panbeh Shop) - خرید اکانت اختصاصی ChatGPT Plus، Claude، Gemini، Perplexity، ابزارهای کدنویسی هوش مصنوعی و طراحی با گارانتی تعویض و تحویل آنی. دارای نماد اعتماد الکترونیکی.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -18,14 +17,19 @@
             sans: ['Vazirmatn', 'system-ui', 'sans-serif'],
           },
           colors: {
-            brand: {
+            primary: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+            },
+            accent: {
               50: '#eef2ff',
               100: '#e0e7ff',
               500: '#6366f1',
               600: '#4f46e5',
               700: '#4338ca',
-              800: '#3730a3',
-              900: '#312e81',
             }
           }
         }
@@ -36,44 +40,61 @@
     body {
       font-family: 'Vazirmatn', sans-serif;
     }
+    .badge-glow {
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.25);
+    }
   </style>
 </head>
-<body class="bg-slate-900 text-slate-100 antialiased min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-indigo-600 selection:text-white">
 
-  <!-- Header / Navigation -->
-  <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+  <!-- Top Announcement Bar -->
+  <div class="bg-indigo-600 text-white text-xs py-2 px-4 text-center font-medium flex items-center justify-center gap-2">
+    <span class="w-2 h-2 rounded-full bg-emerald-300 animate-ping"></span>
+    <span>تحویل آنی و تضمینی کلیه اشتراک‌های هوش مصنوعی با گارانتی تعویض ۳۰ روزه</span>
+    <span class="hidden sm:inline">|</span>
+    <span class="hidden sm:inline text-indigo-100">پشتیبانی تلفنی و آنلاین: ۰۹۹۰۱۱۲۰۲۳۵</span>
+  </div>
+
+  <!-- Header / Navigation (Clean Crisp White Theme) -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <!-- Logo -->
-        <div class="flex items-center gap-3">
-          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/25">
+        
+        <!-- Brand Logo & Identity -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 to-violet-600 flex items-center justify-center shadow-md shadow-indigo-600/20 group-hover:scale-105 transition-transform">
             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
           <div>
-            <span class="text-xl font-bold tracking-tight text-white block">سینما پنبه</span>
-            <span class="text-xs text-indigo-400 font-medium tracking-wide">Panbeh Shop | cinemapluss.ir</span>
+            <div class="flex items-center gap-2">
+              <span class="text-xl font-black text-slate-900 tracking-tight">سینما پنبه</span>
+              <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 text-[10px] font-bold border border-indigo-100">AI Store</span>
+            </div>
+            <span class="text-xs text-slate-500 font-medium tracking-wide">فروشگاه اختصاصی اکانت هوش مصنوعی | Panbeh Shop</span>
           </div>
-        </div>
+        </a>
 
         <!-- Navigation Links -->
-        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-          <a href="#home" class="hover:text-indigo-400 transition-colors">خانه</a>
-          <a href="#services" class="hover:text-indigo-400 transition-colors">خدمات و نرم‌افزارها</a>
-          <a href="#pricing" class="hover:text-indigo-400 transition-colors">تعرفه‌ها و سفارش</a>
-          <a href="#about" class="hover:text-indigo-400 transition-colors">درباره ما</a>
-          <a href="#contact" class="hover:text-indigo-400 transition-colors">تماس با ما</a>
-          <a href="terms.html" class="hover:text-indigo-400 transition-colors text-amber-400">قوانین و شکایات</a>
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
+          <a href="#home" class="hover:text-indigo-600 transition-colors">صفحه اصلی</a>
+          <a href="#products" class="hover:text-indigo-600 transition-colors">اکانت‌های هوش مصنوعی</a>
+          <a href="#features" class="hover:text-indigo-600 transition-colors">مزایا و گارانتی</a>
+          <a href="#about" class="hover:text-indigo-600 transition-colors">درباره ما</a>
+          <a href="#contact" class="hover:text-indigo-600 transition-colors">تماس و نشانی</a>
+          <a href="terms.html" class="hover:text-amber-600 transition-colors text-amber-700 flex items-center gap-1">
+            <span>قوانین و شکایات</span>
+          </a>
         </nav>
 
         <!-- CTA Call Button -->
         <div class="flex items-center gap-3">
-          <a href="tel:09901120235" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition-all duration-200 shadow-md shadow-indigo-600/20">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <a href="tel:09901120235" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-indigo-600 text-white font-medium text-xs sm:text-sm transition-all duration-200 shadow-sm">
+            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
-            <span class="dir-ltr text-left font-mono">09901120235</span>
+            <span class="font-mono dir-ltr">09901120235</span>
           </a>
         </div>
       </div>
@@ -81,72 +102,75 @@
   </header>
 
   <main id="home" class="flex-grow">
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden py-20 lg:py-28 border-b border-slate-800/80 bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-950">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.18),rgba(255,255,255,0))]"></div>
+    
+    <!-- Hero Section (Light Gradient Clean Theme) -->
+    <section class="relative overflow-hidden pt-12 pb-20 bg-gradient-to-b from-white via-indigo-50/30 to-slate-50 border-b border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold mb-6">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          دارای مجوز رسمی طراحی، برنامه‌نویسی و ایجاد نرم‌افزار (اینماد معتبر)
+        <!-- Enamad Verification Pill -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-indigo-200 text-indigo-700 text-xs font-bold mb-6 shadow-sm">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+          دارای نماد اعتماد الکترونیکی (اینماد) و مجوز رسمی طراحی و برنامه‌نویسی نرم‌افزار
         </div>
 
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto">
-          طراحی، پیاده‌سازی و توسعه نرم‌افزارهای <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-pink-400">هوشمند و اختصاصی</span>
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-snug max-w-4xl mx-auto">
+          مرجع تخصصی خرید اشتراک <br class="hidden sm:inline">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-600 to-pink-600">اکانت‌های برتر هوش مصنوعی</span> در ایران
         </h1>
 
-        <p class="mt-6 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          فروشگاه سینما پنبه (<span class="font-semibold text-white">Panbeh Shop</span>) مرجع رسمی ارائه راهکارهای نوین نرم‌افزاری، سامانه‌های وب، خودکارسازی فرآیندها و سرویس‌های دیجیتال با بالاترین استاندارد مهندسی نرم‌افزار در ایران.
+        <p class="mt-6 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          دسترسی آنی، کاملاً قانونی و بدون قطعی به پیشرفته‌ترین سرویس‌های هوش مصنوعی جهان؛ چت‌جی‌پی‌تی پلاس، کلود ۳.۵، جمینی پرو ۵ ترابایت و ابزارهای مهندسی با گارانتی تعویض کامل.
         </p>
 
-        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a href="#pricing" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-indigo-600/30">
-            مشاهده کاتالوگ خدمات و تعرفه‌ها
+        <!-- CTA Buttons -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <a href="#products" class="px-8 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm sm:text-base transition-all duration-200 shadow-md shadow-indigo-600/25 hover:shadow-lg">
+            مشاهده اکانت‌ها و ثبت سفارش
           </a>
-          <a href="#contact" class="px-7 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold text-base transition-all duration-200">
-            ارتباط با پشتیبانی و ثبت درخواست
+          <a href="#enamad-section" class="px-7 py-3.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-bold text-sm sm:text-base transition-all duration-200 shadow-sm">
+            بررسی مجوز و اینماد
           </a>
         </div>
 
-        <!-- Trust Badges -->
+        <!-- Quick Stats Banner -->
         <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-right">
-          <div class="p-4 rounded-xl bg-slate-800/40 border border-slate-800 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
             </div>
             <div>
-              <div class="text-sm font-bold text-white">مجوز رسمی فعالیت</div>
-              <div class="text-xs text-slate-400">ثبت‌شده در مرکز توسعه تجارت</div>
+              <div class="text-sm font-extrabold text-slate-900">تحویل آنی اکانت</div>
+              <div class="text-xs text-slate-500">ارسال مشخصات بلافاصله پس از خرید</div>
             </div>
           </div>
 
-          <div class="p-4 rounded-xl bg-slate-800/40 border border-slate-800 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
             </div>
             <div>
-              <div class="text-sm font-bold text-white">پشتیبانی متعهدانه</div>
-              <div class="text-xs text-slate-400">پاسخگویی سریع تلفنی و تیکت</div>
+              <div class="text-sm font-extrabold text-slate-900">گارانتی تعویض ۳۰ روزه</div>
+              <div class="text-xs text-slate-500">پوشش کامل در طول مدت اشتراک</div>
             </div>
           </div>
 
-          <div class="p-4 rounded-xl bg-slate-800/40 border border-slate-800 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-violet-500/10 text-violet-400 flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+          <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
             </div>
             <div>
-              <div class="text-sm font-bold text-white">تضمین بازگشت وجه</div>
-              <div class="text-xs text-slate-400">مطابق قوانین شفاف خرید</div>
+              <div class="text-sm font-extrabold text-slate-900">پرداخت امن ریالی و تتری</div>
+              <div class="text-xs text-slate-500">کارت‌به‌کارت و درگاه معتبر شاپرک</div>
             </div>
           </div>
 
-          <div class="p-4 rounded-xl bg-slate-800/40 border border-slate-800 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
             </div>
             <div>
-              <div class="text-sm font-bold text-white">تحویل سریع نرم‌افزار</div>
-              <div class="text-xs text-slate-400">پیاده‌سازی آنی و مستندسازی</div>
+              <div class="text-sm font-extrabold text-slate-900">پشتیبانی متعهدانه</div>
+              <div class="text-xs text-slate-500">پاسخگویی سریع ۲۴ ساعته</div>
             </div>
           </div>
         </div>
@@ -154,373 +178,535 @@
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-slate-950">
+    <!-- AI Products Catalog Section -->
+    <section id="products" class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto">
-          <h2 class="text-xs font-bold text-indigo-400 tracking-widest uppercase">خدمات مهندسی نرم‌افزار</h2>
-          <p class="mt-2 text-2xl sm:text-3xl font-bold text-white">دسته‌بندی خدمات و محصولات دیجیتال سینما پنبه</p>
-          <p class="mt-3 text-slate-400 text-sm">ارائه خدمات برنامه‌نویسی استاندارد با بهره‌گیری از آخرین تکنولوژی‌های روز دنیا</p>
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold border border-indigo-100">
+            کاتالوگ محصولات و اشتراک‌ها
+          </span>
+          <h2 class="mt-3 text-2xl sm:text-4xl font-extrabold text-slate-900">
+            خرید اکانت‌های قانونی هوش مصنوعی
+          </h2>
+          <p class="mt-3 text-slate-500 text-sm">
+            تمامی اکانت‌ها اختصاصی، قانونی و دارای پنل رسمی بوده و به ایمیل شخصی شما یا با اطلاعات اختصاصی تحویل می‌گردند.
+          </p>
         </div>
 
-        <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Service 1 -->
-          <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 transition-all duration-300">
-            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-6">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+        <!-- Products Grid (6 High Demand AI Accounts) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Product 1: ChatGPT Plus -->
+          <div class="rounded-3xl bg-white border-2 border-indigo-100 hover:border-indigo-500 p-7 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 relative group">
+            <div class="absolute top-5 left-5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+              تحویل آنی
             </div>
-            <h3 class="text-lg font-bold text-white">طراحی سامانه‌های تحت وب و پورتال</h3>
-            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-              توسعه وب‌سایت‌های سازمانی، فروشگاهی و پلتفرم‌های تعاملی با معماری امن، سرعت بارگذاری فوق‌العاده و پنل مدیریت داینامیک.
-            </p>
-            <ul class="mt-5 space-y-2 text-xs text-slate-300">
-              <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> استک مدرن Node.js، Next.js و Python</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> رابط کاربری ریسپانسیو و تمیز</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> بهینه‌سازی کامل دیتابیس و امنیت</li>
-            </ul>
+            <div>
+              <!-- Logo & Title -->
+              <div class="flex items-center gap-3.5 mb-5">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-xl shadow-md">
+                  GPT
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900">اکانت ChatGPT Plus</h3>
+                  <div class="text-xs text-slate-500 font-medium">اشتراک ۳۰ روزه اختصاصی (OpenAI)</div>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-600 leading-relaxed mb-5">
+                دسترسی نامحدود به قوی‌ترین مدل هوش مصنوعی جهان (GPT-4o)، دستیار صوتی پیشرفته، تولید تصویر با DALL-E 3، امکان بارگذاری اسناد و تحلیل داده.
+              </p>
+
+              <!-- Features -->
+              <ul class="space-y-2.5 text-xs text-slate-700 mb-6 border-y border-slate-100 py-4">
+                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> فعال‌سازی روی ایمیل شخصی یا اکانت آماده</li>
+                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> گارانتی تعویض ۳۰ روزه کامل (Full Warranty)</li>
+                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> دسترسی به قابلیت‌های پیش‌نمایش جدید OpenAI Canvas</li>
+              </ul>
+
+              <!-- Price Box -->
+              <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-center mb-6">
+                <div class="text-xs text-slate-500">تعرفه اشتراک ۳۰ روزه:</div>
+                <div class="mt-1">
+                  <span class="text-3xl font-black text-slate-900">۶۵۰,۰۰۰</span>
+                  <span class="text-xs text-slate-600 mr-1 font-bold">تومان</span>
+                </div>
+                <div class="text-[11px] text-emerald-600 font-semibold mt-1">موجودی انبار: آماده تحویل فوری</div>
+              </div>
+            </div>
+
+            <!-- Action -->
+            <a href="tel:09901120235" class="w-full py-3.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs text-center transition-colors shadow-md shadow-indigo-600/20">
+              سفارش تلفنی و تحویل آنی (09901120235)
+            </a>
           </div>
 
-          <!-- Service 2 -->
-          <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-violet-500/50 transition-all duration-300">
-            <div class="w-12 h-12 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center mb-6">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+          <!-- Product 2: Gemini Advanced 18 Months (Best Deal) -->
+          <div class="rounded-3xl bg-white border-2 border-indigo-500 p-7 flex flex-col justify-between shadow-lg shadow-indigo-500/10 hover:shadow-2xl transition-all duration-300 relative group">
+            <div class="absolute -top-3 right-6 px-3.5 py-1 rounded-full bg-indigo-600 text-white text-xs font-black shadow-sm">
+              پیشنهاد طلایی ویژه
             </div>
-            <h3 class="text-lg font-bold text-white">توسعه بات‌ها و ابزارهای اتوماسیون</h3>
-            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-              طراحی و پیاده‌سازی ربات‌های اختصاصی تلگرام، اسکریپت‌های پردازش خودکار داده‌ها و ابزارهای مانیتورینگ بلادرنگ.
-            </p>
-            <ul class="mt-5 space-y-2 text-xs text-slate-300">
-              <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> موتورهای پرسرعت ای‌سینک (Async)</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> یکپارچه‌سازی با درگاه‌های بانکی و پیامکی</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> گزارش‌گیری لحظه‌ای و داشبورد تحت وب</li>
-            </ul>
+            <div>
+              <!-- Logo & Title -->
+              <div class="flex items-center gap-3.5 mb-5 mt-2">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold text-xl shadow-md">
+                  GEM
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900">جمینی پرو (Gemini Advanced)</h3>
+                  <div class="text-xs text-indigo-600 font-semibold">اشتراک ۱۸ ماهه + ۵ ترابایت ابری گوگل</div>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-600 leading-relaxed mb-5">
+                دسترسی کامل به مدل Google Gemini 1.5 Pro با پردازش ۲ میلیون توکن متن و فایل، همراه با ۵ ترابایت حافظه ابری مادام روی اکانت شخصی.
+              </p>
+
+              <!-- Features -->
+              <ul class="space-y-2.5 text-xs text-slate-700 mb-6 border-y border-slate-100 py-4">
+                <li class="flex items-center gap-2"><span class="text-indigo-600 font-bold">✓</span> فعال‌سازی رسمی از طریق لینک اینوایت گوگل</li>
+                <li class="flex items-center gap-2"><span class="text-indigo-600 font-bold">✓</span> بدون نیاز به پسورد ایمیل کاربر</li>
+                <li class="flex items-center gap-2"><span class="text-indigo-600 font-bold">✓</span> دسترسی به ۵ ترابایت در Google Drive و Google Photos</li>
+              </ul>
+
+              <!-- Price Box -->
+              <div class="p-4 rounded-2xl bg-indigo-50/70 border border-indigo-200 text-center mb-6">
+                <div class="text-xs text-indigo-700 font-medium">تعرفه استثنایی ۱۸ ماهه:</div>
+                <div class="mt-1">
+                  <span class="text-3xl font-black text-indigo-950">۲۹۰,۰۰۰</span>
+                  <span class="text-xs text-indigo-800 mr-1 font-bold">تومان</span>
+                </div>
+                <div class="text-[11px] text-emerald-600 font-semibold mt-1">تعداد محدود | گارانتی فعال‌سازی صددرصد</div>
+              </div>
+            </div>
+
+            <!-- Action -->
+            <a href="tel:09901120235" class="w-full py-3.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs text-center transition-colors shadow-md shadow-indigo-600/30">
+              خرید جمینی ۱۸ ماهه (09901120235)
+            </a>
           </div>
 
-          <!-- Service 3 -->
-          <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-pink-500/50 transition-all duration-300">
-            <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center mb-6">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          <!-- Product 3: Claude 3.5 Sonnet / API -->
+          <div class="rounded-3xl bg-white border-2 border-slate-200 hover:border-violet-500 p-7 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 relative group">
+            <div class="absolute top-5 left-5 px-3 py-1 rounded-full bg-violet-50 text-violet-700 text-xs font-bold border border-violet-200">
+              محبوب برنامه‌نویسان
             </div>
-            <h3 class="text-lg font-bold text-white">پشتیبانی و نگهداری نرم‌افزار</h3>
-            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-              تضمین پایداری، رفع باگ‌های امنیتی، بک‌آپ‌گیری منظم و مانیتورینگ مداوم سرورها و پایگاه‌های داده.
-            </p>
-            <ul class="mt-5 space-y-2 text-xs text-slate-300">
-              <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> آپتایم ۹۹.۹٪ سرورها</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> مانیتورینگ خودکار خطاها</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> گارانتی و پشتیبانی فنی مستقیم</li>
-            </ul>
+            <div>
+              <!-- Logo & Title -->
+              <div class="flex items-center gap-3.5 mb-5">
+                <div class="w-14 h-14 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-xl shadow-md">
+                  CLD
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900">اکانت Claude Pro / API</h3>
+                  <div class="text-xs text-slate-500 font-medium">مدل پیشرو Claude 3.5 Sonnet (Anthropic)</div>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-600 leading-relaxed mb-5">
+                قدرتمندترین مدل هوش مصنوعی در حوزه کدنویسی، تحلیل استدلال پیچیده و درک دقیق پروژه‌های بزرگ نرم‌افزاری با قابلیت Projects و Artifacts.
+              </p>
+
+              <!-- Features -->
+              <ul class="space-y-2.5 text-xs text-slate-700 mb-6 border-y border-slate-100 py-4">
+                <li class="flex items-center gap-2"><span class="text-violet-600 font-bold">✓</span> ۵ برابر سقف پیام بیشتر نسبت به نسخه رایگان</li>
+                <li class="flex items-center gap-2"><span class="text-violet-600 font-bold">✓</span> اکانت اختصاصی تک‌کاربره با ایمیل قانونی</li>
+                <li class="flex items-center gap-2"><span class="text-violet-600 font-bold">✓</span> گارانتی کامل ۳۰ روزه با پشتیبانی تعویض</li>
+              </ul>
+
+              <!-- Price Box -->
+              <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-center mb-6">
+                <div class="text-xs text-slate-500">تعرفه اشتراک یک‌ماهه:</div>
+                <div class="mt-1">
+                  <span class="text-3xl font-black text-slate-900">۸۲۰,۰۰۰</span>
+                  <span class="text-xs text-slate-600 mr-1 font-bold">تومان</span>
+                </div>
+                <div class="text-[11px] text-emerald-600 font-semibold mt-1">موجودی فعال | شارژ API نیز موجود است</div>
+              </div>
+            </div>
+
+            <!-- Action -->
+            <a href="tel:09901120235" class="w-full py-3.5 px-4 rounded-xl bg-slate-900 hover:bg-violet-600 text-white font-bold text-xs text-center transition-colors shadow-sm">
+              سفارش کلود ۳.۵ سونات (09901120235)
+            </a>
           </div>
+
+          <!-- Product 4: Perplexity Pro -->
+          <div class="rounded-3xl bg-white border border-slate-200 hover:border-indigo-400 p-7 flex flex-col justify-between shadow-sm hover:shadow-lg transition-all duration-300">
+            <div>
+              <div class="flex items-center gap-3.5 mb-5">
+                <div class="w-14 h-14 rounded-2xl bg-cyan-600 text-white flex items-center justify-center font-bold text-xl shadow-md">
+                  PRX
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900">پرپلکسیتی پرو (Perplexity Pro)</h3>
+                  <div class="text-xs text-slate-500 font-medium">موتور جستجوی پژوهشی و هوشمند</div>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-600 leading-relaxed mb-5">
+                موتور سرچ هوشمند متصل به وب با دسترسی نامحدود به انتخاب مدل‌های GPT-4o، Claude 3.5 Sonnet و Sonar با رفرنس دقیق مقالات و سایت‌ها.
+              </p>
+
+              <ul class="space-y-2 text-xs text-slate-700 mb-6 border-y border-slate-100 py-3">
+                <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> جستجوی ۳۰۰+ پرسش Pro در روز</li>
+                <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> اشتراک سالانه یا ماهانه با کد CDK معتبر</li>
+              </ul>
+
+              <div class="p-3.5 rounded-xl bg-slate-50 text-center mb-5">
+                <span class="text-2xl font-black text-slate-900">۴۸۰,۰۰۰</span>
+                <span class="text-xs text-slate-600 mr-1 font-bold">تومان</span>
+              </div>
+            </div>
+
+            <a href="tel:09901120235" class="w-full py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs text-center transition-colors">
+              ثبت سفارش پرپلکسیتی
+            </a>
+          </div>
+
+          <!-- Product 5: Cursor Pro & Copilot -->
+          <div class="rounded-3xl bg-white border border-slate-200 hover:border-indigo-400 p-7 flex flex-col justify-between shadow-sm hover:shadow-lg transition-all duration-300">
+            <div>
+              <div class="flex items-center gap-3.5 mb-5">
+                <div class="w-14 h-14 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-bold text-xl shadow-md">
+                  DEV
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900">Cursor Pro / GitHub Copilot</h3>
+                  <div class="text-xs text-slate-500 font-medium">ابزارهای کدنویسی هوشمند برای برنامه‌نویسان</div>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-600 leading-relaxed mb-5">
+                ادیتور هوشمند Cursor با قابلیت Tab Auto-complete و حل خودکار باگ‌ها در کل پروژه بر پایه مدل‌های Claude و GPT-4o.
+              </p>
+
+              <ul class="space-y-2 text-xs text-slate-700 mb-6 border-y border-slate-100 py-3">
+                <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> ۵۰۰ درخواست پرسرعت Pro Fast در ماه</li>
+                <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> سازگار کامل با VS Code و همه زبان‌ها</li>
+              </ul>
+
+              <div class="p-3.5 rounded-xl bg-slate-50 text-center mb-5">
+                <span class="text-2xl font-black text-slate-900">۵۹۰,۰۰۰</span>
+                <span class="text-xs text-slate-600 mr-1 font-bold">تومان</span>
+              </div>
+            </div>
+
+            <a href="tel:09901120235" class="w-full py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs text-center transition-colors">
+              ثبت سفارش ادیتور کرسر
+            </a>
+          </div>
+
+          <!-- Product 6: Midjourney / CapCut Pro -->
+          <div class="rounded-3xl bg-white border border-slate-200 hover:border-indigo-400 p-7 flex flex-col justify-between shadow-sm hover:shadow-lg transition-all duration-300">
+            <div>
+              <div class="flex items-center gap-3.5 mb-5">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-pink-500 to-rose-600 text-white flex items-center justify-center font-bold text-xl shadow-md">
+                  ART
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900">CapCut Pro / Midjourney</h3>
+                  <div class="text-xs text-slate-500 font-medium">ابزارهای طراحی و تدوین هوشمند ویدیویی</div>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-600 leading-relaxed mb-5">
+                دسترسی به تمامی افکت‌های هوش مصنوعی کپ‌کات، زیرنویس خودکار فارسی، حذف پس‌زمینه هوشمند و تولید تصاویر فوق‌العاده با میدجورنی.
+              </p>
+
+              <ul class="space-y-2 text-xs text-slate-700 mb-6 border-y border-slate-100 py-3">
+                <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> پشتیبانی از موبایل و دسکتاپ</li>
+                <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> اشتراک‌های ۳ ماهه و سالانه با گارانتی تعویض</li>
+              </ul>
+
+              <div class="p-3.5 rounded-xl bg-slate-50 text-center mb-5">
+                <span class="text-2xl font-black text-slate-900">۳۵۰,۰۰۰</span>
+                <span class="text-xs text-slate-600 mr-1 font-bold">تومان</span>
+              </div>
+            </div>
+
+            <a href="tel:09901120235" class="w-full py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs text-center transition-colors">
+              ثبت سفارش کپ‌کات پرو
+            </a>
+          </div>
+
         </div>
+
       </div>
     </section>
 
-    <!-- Pricing / Catalog Section -->
-    <section id="pricing" class="py-20 bg-slate-900/60 border-y border-slate-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto">
-          <h2 class="text-xs font-bold text-indigo-400 tracking-widest uppercase">تعرفه‌ها و پلن‌های رسمی</h2>
-          <p class="mt-2 text-2xl sm:text-3xl font-bold text-white">شفافیت کامل در قیمت‌گذاری و سفارش خدمات</p>
-          <p class="mt-3 text-slate-400 text-sm">تمامی مبالغ با رعایت شفافیت و استانداردهای مرکز توسعه تجارت الکترونیکی درج شده‌اند.</p>
-        </div>
-
-        <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Package 1 -->
-          <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col justify-between hover:shadow-xl hover:shadow-indigo-500/10 transition-all">
-            <div>
-              <div class="text-xs font-semibold text-indigo-400">پلن پایه</div>
-              <h3 class="text-xl font-bold text-white mt-1">توسعه نرم‌افزار اختصاصی سبک</h3>
-              <p class="text-xs text-slate-400 mt-2">مناسب برای کسب‌وکارهای نوپا، ابزارهای کاربردی و اتوماسیون وظایف روزمره.</p>
-              
-              <div class="mt-6 p-4 rounded-xl bg-slate-800/60 border border-slate-800 text-center">
-                <span class="text-3xl font-extrabold text-white">۲,۸۰۰,۰۰۰</span>
-                <span class="text-xs text-slate-400 mr-1">تومان</span>
-                <div class="text-[11px] text-emerald-400 mt-1">پرداخت مرحله‌ای + گارانتی ۳ ماهه</div>
-              </div>
-
-              <ul class="mt-6 space-y-3 text-xs text-slate-300">
-                <li class="flex items-center gap-2"><span class="text-indigo-400 font-bold">✔</span> کدنویسی اختصاصی پایتون یا تایپ‌اسکریپت</li>
-                <li class="flex items-center gap-2"><span class="text-indigo-400 font-bold">✔</span> مستندات کامل فنی و راهنمای نصب</li>
-                <li class="flex items-center gap-2"><span class="text-indigo-400 font-bold">✔</span> ۳ ماه پشتیبانی و رفع اشکال رایگان</li>
-              </ul>
-            </div>
-
-            <div class="mt-8">
-              <a href="tel:09901120235" class="block w-full py-3 px-4 rounded-xl bg-slate-800 hover:bg-indigo-600 text-white font-medium text-xs text-center transition-colors">
-                ثبت سفارش تلفنی / مشاوره (09901120235)
-              </a>
-            </div>
-          </div>
-
-          <!-- Package 2 (Featured) -->
-          <div class="relative p-8 rounded-2xl bg-gradient-to-b from-indigo-950/60 to-slate-900 border-2 border-indigo-500 flex flex-col justify-between shadow-2xl shadow-indigo-500/20">
-            <div class="absolute -top-3.5 right-6 px-3 py-1 rounded-full bg-indigo-500 text-white text-[11px] font-bold">
-              پرفروش‌ترین پکیج
-            </div>
-            <div>
-              <div class="text-xs font-semibold text-indigo-400">پلن جامع</div>
-              <h3 class="text-xl font-bold text-white mt-1">سامانه وب و پرتال یکپارچه</h3>
-              <p class="text-xs text-slate-400 mt-2">طراحی پورتال‌های تعاملی، سیستم‌های عضویت، پنل فروشگاهی و اتصال به درگاه.</p>
-              
-              <div class="mt-6 p-4 rounded-xl bg-indigo-900/40 border border-indigo-700/50 text-center">
-                <span class="text-3xl font-extrabold text-white">۵,۹۰۰,۰۰۰</span>
-                <span class="text-xs text-slate-400 mr-1">تومان</span>
-                <div class="text-[11px] text-emerald-400 mt-1">طراحی فول ریسپانسیو + دیتابیس اختصاصی</div>
-              </div>
-
-              <ul class="mt-6 space-y-3 text-xs text-slate-300">
-                <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✔</span> معماری ماژولار و بسیار سریع</li>
-                <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✔</span> پنل ادمین جهت مدیریت محتوا و سفارشات</li>
-                <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✔</span> اتصال به درگاه بانکی شاپرک و پیامک</li>
-                <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✔</span> ۶ ماه پشتیبانی جامع و تضمین کیفیت</li>
-              </ul>
-            </div>
-
-            <div class="mt-8">
-              <a href="tel:09901120235" class="block w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs text-center transition-colors shadow-lg shadow-indigo-600/30">
-                سفارش پکیج وب با تماس مستقیم
-              </a>
-            </div>
-          </div>
-
-          <!-- Package 3 -->
-          <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col justify-between hover:shadow-xl hover:shadow-violet-500/10 transition-all">
-            <div>
-              <div class="text-xs font-semibold text-violet-400">پلن سازمانی</div>
-              <h3 class="text-xl font-bold text-white mt-1">پشتیبانی و نگهداری نرم‌افزاری</h3>
-              <p class="text-xs text-slate-400 mt-2">ویژه پروژه‌های فعال جهت پایش لحظه‌ای، آپدیت‌های امنیتی و رفع رخدادها.</p>
-              
-              <div class="mt-6 p-4 rounded-xl bg-slate-800/60 border border-slate-800 text-center">
-                <span class="text-3xl font-extrabold text-white">۱,۲۰۰,۰۰۰</span>
-                <span class="text-xs text-slate-400 mr-1">تومان / ماهانه</span>
-                <div class="text-[11px] text-emerald-400 mt-1">پاسخگویی تیکتینگ و آنکال ۲۴/۷</div>
-              </div>
-
-              <ul class="mt-6 space-y-3 text-xs text-slate-300">
-                <li class="flex items-center gap-2"><span class="text-violet-400 font-bold">✔</span> بک‌آپ‌گیری روزانه و هفتگی ابری</li>
-                <li class="flex items-center gap-2"><span class="text-violet-400 font-bold">✔</span> بهینه‌سازی سرعت و پچ‌های امنیتی</li>
-                <li class="flex items-center gap-2"><span class="text-violet-400 font-bold">✔</span> گزارش ماهیانه عملکرد سامانه</li>
-              </ul>
-            </div>
-
-            <div class="mt-8">
-              <a href="tel:09901120235" class="block w-full py-3 px-4 rounded-xl bg-slate-800 hover:bg-violet-600 text-white font-medium text-xs text-center transition-colors">
-                درخواست قرارداد پشتیبانی نرم‌افزار
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-slate-950">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-indigo-500/10 text-indigo-400 text-xs font-semibold mb-4">
-              درباره سینما پنبه (Panbeh Shop)
-            </div>
-            <h2 class="text-2xl sm:text-3xl font-bold text-white leading-snug">
-              تعهد ما: مهندسی دقیق، شفافیت در ارائه خدمات و رضایت کامل مشتری
-            </h2>
-            <p class="mt-4 text-slate-300 text-sm leading-relaxed">
-              «فروشگاه سینما پنبه» با نام لاتین <span class="font-semibold text-white">Panbeh Shop</span> و نشانی اینترنتی <span class="font-semibold text-indigo-400">cinemapluss.ir</span> به عنوان مرکزی معتبر در حوزه طراحی، برنامه‌نویسی و پیاده‌سازی سیستم‌های نرم‌افزاری پایه‌گذاری شده است.
-            </p>
-            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-              رسالت ما ارائه راهکارهای کارآمد و به‌روز فناوری اطلاعات برای کسب‌وکارهای ایرانی، خودکارسازی فرآیندهای سازمانی و تسهیل تعاملات دیجیتال با بالاترین استانداردها و رعایت کامل قوانین تجارت الکترونیکی جمهوری اسلامی ایران است.
-            </p>
-
-            <div class="mt-6 pt-6 border-t border-slate-800 grid grid-cols-2 gap-4 text-xs">
-              <div>
-                <span class="text-slate-400 block">صاحب امتیاز و مدیر مسئول:</span>
-                <span class="text-white font-bold text-sm mt-0.5 block">فاروق محمدی</span>
-              </div>
-              <div>
-                <span class="text-slate-400 block">رشته فعالیت رسمی:</span>
-                <span class="text-white font-bold text-sm mt-0.5 block">طراحی، برنامه‌نویسی و ایجاد نرم‌افزار</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Legal & Compliance Card -->
-          <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 relative">
-            <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
-              قانون‌مندی و تضمین حقوق مصرف‌کننده
-            </h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              تمامی فعالیت‌ها و خدمات این فروشگاه دارای مجوزهای لازم از مراجع مربوطه بوده و تابع قوانین و مقررات جمهوری اسلامی ایران و قانون تجارت الکترونیکی می‌باشد.
-            </p>
-            <div class="mt-6 space-y-3 text-xs">
-              <div class="p-3 rounded-xl bg-slate-800/70 border border-slate-700/60 flex items-center justify-between">
-                <span class="text-slate-300">حق انصراف و بازگشت وجه:</span>
-                <span class="text-emerald-400 font-semibold">مطابق بند ۳۷ قانون تجارت الکترونیک</span>
-              </div>
-              <div class="p-3 rounded-xl bg-slate-800/70 border border-slate-700/60 flex items-center justify-between">
-                <span class="text-slate-300">حفظ محرمانگی اطلاعات:</span>
-                <span class="text-indigo-400 font-semibold">تضمین ۱۰۰٪ حریم خصوصی</span>
-              </div>
-              <div class="p-3 rounded-xl bg-slate-800/70 border border-slate-700/60 flex items-center justify-between">
-                <span class="text-slate-300">رسیدگی به شکایات:</span>
-                <span class="text-amber-400 font-semibold">حداکثر ۲۴ ساعت کاری</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact & Verified Location Section -->
-    <section id="contact" class="py-20 bg-slate-900/40 border-t border-slate-800">
+    <!-- Why Us / Features Section -->
+    <section id="features" class="py-20 bg-slate-50 border-t border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-14">
-          <h2 class="text-xs font-bold text-indigo-400 tracking-widest uppercase">ارتباط مستقیم</h2>
-          <p class="mt-2 text-2xl sm:text-3xl font-bold text-white">مشخصات تماس و نشانی رسمی تاییدشده اینماد</p>
-          <p class="mt-2 text-slate-400 text-xs">اطلاعات هویتی و مکانی ثبت شده در سامانه اینماد وزارت صنعت، معدن و تجارت</p>
+          <h2 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">چرا سینما پنبه؟</h2>
+          <p class="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-900">تعهداتی که به تمام مشتریان خود می‌دهیم</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm text-right">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">اکانت‌های کاملاً قانونی و شخصی</h3>
+            <p class="mt-3 text-slate-600 text-xs leading-relaxed">
+              تمامی اکانت‌ها با مسترکارت و ویزاکارت‌های بانکی معتبر بین‌المللی پرداخت می‌شوند و خبری از روش‌های فیک یا اشتراکی ناپایدار نیست.
+            </p>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm text-right">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">گارانتی کامل و جایگزینی آنی</h3>
+            <p class="mt-3 text-slate-600 text-xs leading-relaxed">
+              در صورت بروز هرگونه مشکل یا قطعی در طول مدت اشتراک، اکانت بدون معطلی تعویض شده یا طبق قوانین استرداد وجه انجام می‌گیرد.
+            </p>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm text-right">
+            <div class="w-12 h-12 rounded-2xl bg-violet-50 text-violet-600 flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">پشتیبانی توسط مهندسین نرم‌افزار</h3>
+            <p class="mt-3 text-slate-600 text-xs leading-relaxed">
+              تیم پشتیبانی سینما پنبه متشکل از برنامه‌نویسان و متخصصان شبکه است و در راه‌اندازی، اتصال API و رفع ارورها در کنار شما خواهد بود.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- About & Legal Verification Section -->
+    <section id="about" class="py-20 bg-white border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-indigo-50 text-indigo-700 text-xs font-bold mb-4">
+              درباره فروشگاه سینما پنبه
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-snug">
+              اتصال بدون مرز کاربران ایرانی به دنیای هوش مصنوعی و نرم‌افزارهای روز دنیا
+            </h2>
+            <p class="mt-4 text-slate-600 text-sm leading-relaxed">
+              «فروشگاه سینما پنبه» با نام تجاری <strong class="text-slate-900">Panbeh Shop</strong> و نشانی اینترنتی <strong class="text-indigo-600">cinemapluss.ir</strong>، با هدف رفع محدودیت‌های پرداخت‌های بین‌المللی و تحریم‌های فناوری علیه کاربران، پژوهشگران و مهندسین ایرانی تأسیس شده است.
+            </p>
+            <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+              ما با دارا بودن مجوز رسمی طراحی، برنامه‌نویسی و ایجاد نرم‌افزار از مراجع ذی‌صلاح، بستر امن و مطمئنی را برای تهیه لایسنس‌ها، اکانت‌ها و ابزارهای هوش مصنوعی فراهم کرده‌ایم تا توسعه‌دهندگان و شرکت‌ها با آسودگی خاطر به توسعه محصولات خود بپردازند.
+            </p>
+
+            <div class="mt-6 pt-6 border-t border-slate-100 grid grid-cols-2 gap-4 text-xs">
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+                <span class="text-slate-500 block">صاحب امتیاز و مدیر مسئول:</span>
+                <span class="text-slate-900 font-extrabold text-sm mt-1 block">فاروق محمدی</span>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+                <span class="text-slate-500 block">رشته فعالیت رسمی:</span>
+                <span class="text-slate-900 font-extrabold text-sm mt-1 block">طراحی، برنامه‌نویسی و نرم‌افزار</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Legal & Compliance Box -->
+          <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm text-right">
+            <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+              پایبندی به قوانین و تضمین حقوق مشتریان
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              کلیه فعالیت‌های فروشگاه سینما پنبه طبق قانون تجارت الکترونیک و آیین‌نامه‌های مرکز توسعه تجارت الکترونیکی (اینماد) انجام می‌شود:
+            </p>
+            
+            <div class="mt-6 space-y-3 text-xs">
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
+                <span class="text-slate-700 font-medium">مهلت تست و حق انصراف:</span>
+                <span class="text-emerald-600 font-bold">۷ روز کاری (ماده ۳۷ قانون تجارت الکترونیک)</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
+                <span class="text-slate-700 font-medium">حفظ حریم خصوصی و امنیت داده:</span>
+                <span class="text-indigo-600 font-bold">۱۰۰٪ محفوظ و رمزنگاری‌شده</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
+                <span class="text-slate-700 font-medium">رسیدگی به شکایات و پشتیبانی:</span>
+                <span class="text-amber-600 font-bold">پاسخگویی حداکثر ۲۴ ساعته</span>
+              </div>
+            </div>
+
+            <div class="mt-6 text-center">
+              <a href="terms.html" class="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 text-xs font-bold transition-colors">
+                مطالعه کامل متن قوانین، شرایط بازگشت وجه و شکایات ←
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Verified Contact & Address Section -->
+    <section id="contact" class="py-20 bg-slate-50 border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold border border-indigo-100">
+            اطلاعات شفاف و مستند
+          </span>
+          <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-900">
+            مشخصات تماس و نشانی رسمی تاییدشده اینماد
+          </h2>
+          <p class="mt-2 text-slate-500 text-xs">اطلاعات هویتی و مکانی احراز شده در سامانه اینماد وزارت صمت</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Phone -->
-          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-right">
-            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4">
+          
+          <!-- Phone Card -->
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm text-right">
+            <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
             </div>
-            <div class="text-xs text-slate-400 font-medium">شماره تماس مستقیم و پشتیبانی:</div>
-            <a href="tel:09901120235" class="mt-2 text-base font-bold text-white hover:text-indigo-400 transition-colors block font-mono dir-ltr text-right">
+            <div class="text-xs text-slate-500 font-medium">شماره تماس و پشتیبانی مستقیم:</div>
+            <a href="tel:09901120235" class="mt-2 text-lg font-black text-slate-900 hover:text-indigo-600 transition-colors block font-mono dir-ltr text-right">
               09901120235
             </a>
-            <div class="text-[11px] text-emerald-400 mt-1">تاییدشده در سامانه اینماد</div>
+            <div class="text-[11px] text-emerald-600 font-semibold mt-1">تاییدشده در سامانه اینماد</div>
           </div>
 
-          <!-- Email -->
-          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-right">
-            <div class="w-10 h-10 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center mb-4">
+          <!-- Email Card -->
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm text-right">
+            <div class="w-10 h-10 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center mb-4">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
             </div>
-            <div class="text-xs text-slate-400 font-medium">پست الکترونیکی:</div>
-            <a href="mailto:hokar368@gmail.com" class="mt-2 text-sm font-bold text-white hover:text-violet-400 transition-colors block font-mono">
+            <div class="text-xs text-slate-500 font-medium">پست الکترونیکی پشتیبانی:</div>
+            <a href="mailto:hokar368@gmail.com" class="mt-2 text-sm font-bold text-slate-900 hover:text-indigo-600 transition-colors block font-mono">
               hokar368@gmail.com
             </a>
-            <div class="text-[11px] text-slate-400 mt-1">پاسخگویی سریع ایمیلی</div>
+            <div class="text-[11px] text-slate-500 mt-1">پاسخگویی سریع تیکت و ایمیل</div>
           </div>
 
-          <!-- Postal Code -->
-          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-right">
-            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
+          <!-- Postal Code Card -->
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm text-right">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
             </div>
-            <div class="text-xs text-slate-400 font-medium">کد پستی ده رقمی:</div>
-            <div class="mt-2 text-base font-bold text-white font-mono dir-ltr text-right">
+            <div class="text-xs text-slate-500 font-medium">کد پستی ۱۰ رقمی:</div>
+            <div class="mt-2 text-lg font-black text-slate-900 font-mono dir-ltr text-right">
               6634141500
             </div>
-            <div class="text-[11px] text-slate-400 mt-1">تاییدیه رسمی اداره پست</div>
+            <div class="text-[11px] text-slate-500 mt-1">احراز شده در شرکت ملی پست</div>
           </div>
 
-          <!-- Working Hours -->
-          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-right">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+          <!-- Hours Card -->
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm text-right">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
-            <div class="text-xs text-slate-400 font-medium">ساعات کاری و پاسخگویی:</div>
-            <div class="mt-2 text-sm font-bold text-white">
-              شنبه تا پنج‌شنبه ۹ الی ۱۸
+            <div class="text-xs text-slate-500 font-medium">ساعات کاری و پاسخگویی:</div>
+            <div class="mt-2 text-sm font-bold text-slate-900">
+              شنبه تا پنج‌شنبه ۹:۰۰ الی ۱۸:۰۰
             </div>
-            <div class="text-[11px] text-emerald-400 mt-1">پشتیبانی آنلاین فعال</div>
+            <div class="text-[11px] text-emerald-600 font-semibold mt-1">پشتیبانی آنلاین و تلگرامی ۲۴ ساعته</div>
           </div>
+
         </div>
 
-        <!-- Full Address Box -->
-        <div class="mt-8 p-6 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <!-- Full Address Banner -->
+        <div class="mt-8 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div class="flex items-start gap-3">
-            <div class="p-2 rounded-lg bg-slate-800 text-indigo-400 shrink-0 mt-0.5">
+            <div class="p-2 rounded-lg bg-indigo-50 text-indigo-600 shrink-0 mt-0.5">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
             </div>
             <div>
-              <div class="text-xs font-semibold text-slate-400">نشانی ثبتی و دفتر مرکزی:</div>
-              <div class="text-sm font-medium text-slate-200 mt-1 leading-relaxed">
+              <div class="text-xs font-semibold text-slate-500">نشانی ثبتی دفتر مرکزی:</div>
+              <div class="text-sm font-medium text-slate-800 mt-1 leading-relaxed">
                 استان کردستان، شهرستان کامیاران، بخش موچش، روستای گاورود، شهر فارس آباد، محله ناو ئاوایی، کوچه (مدرسه)، کوچه ((محمدبیدخ))، پلاک ۱۶۸.۰، طبقه همکف
               </div>
             </div>
           </div>
           <div class="shrink-0">
-            <a href="terms.html#complaint" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 text-xs font-semibold border border-amber-500/20 transition-all">
-              ثبت و پیگیری شکایات
+            <a href="terms.html#complaint" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 text-xs font-bold border border-amber-200 transition-all">
+              ثبت و پیگیری شکایات مشتریان
             </a>
           </div>
         </div>
+
       </div>
     </section>
+
   </main>
 
-  <!-- Footer with Official Enamad Trust Seal Slot -->
-  <footer class="bg-slate-950 border-t border-slate-800/80 pt-16 pb-12">
+  <!-- Footer with Official Enamad Trust Seal Slot (Crisp White / Slate Style) -->
+  <footer id="enamad-section" class="bg-white border-t border-slate-200 pt-16 pb-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-200">
         
-        <!-- Col 1: About Brand -->
+        <!-- Col 1: Brand Info -->
         <div class="space-y-4">
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold">
               CP
             </div>
             <div>
-              <span class="text-base font-bold text-white block">فروشگاه سینما پنبه</span>
-              <span class="text-xs text-indigo-400">Panbeh Shop</span>
+              <span class="text-base font-bold text-slate-900 block">فروشگاه سینما پنبه</span>
+              <span class="text-xs text-indigo-600 font-semibold">Panbeh Shop</span>
             </div>
           </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            ارائه خدمات استاندارد و تخصصی در حوزه مهندسی نرم‌افزار، توسعه وب‌سرویس‌ها، طراحی پرتال‌های هوشمند و اتوماسیون فرآیندهای دیجیتال.
+          <p class="text-xs text-slate-500 leading-relaxed">
+            مرجع تخصصی ارائه اکانت‌های هوش مصنوعی، اشتراک‌های دیجیتال و خدمات برنامه‌نویسی با تاییدیه رسمی مرکز توسعه تجارت الکترونیکی.
           </p>
-          <div class="text-[11px] text-slate-500">
-            دامنه تاییدشده: <span class="text-slate-300 font-mono">cinemapluss.ir</span>
+          <div class="text-[11px] text-slate-400">
+            دامنه ثبت‌شده: <span class="text-slate-700 font-mono font-bold">cinemapluss.ir</span>
           </div>
         </div>
 
-        <!-- Col 2: Fast Navigation -->
+        <!-- Col 2: Navigation -->
         <div>
-          <h4 class="text-sm font-bold text-white mb-4">دسترسی سریع</h4>
-          <ul class="space-y-2.5 text-xs text-slate-400">
-            <li><a href="#services" class="hover:text-indigo-400 transition-colors">خدمات نرم‌افزاری</a></li>
-            <li><a href="#pricing" class="hover:text-indigo-400 transition-colors">کاتالوگ و تعرفه‌ها</a></li>
-            <li><a href="#about" class="hover:text-indigo-400 transition-colors">درباره سینما پنبه</a></li>
-            <li><a href="#contact" class="hover:text-indigo-400 transition-colors">اطلاعات تماس و نشانی</a></li>
+          <h4 class="text-sm font-bold text-slate-900 mb-4">دسترسی سریع</h4>
+          <ul class="space-y-2.5 text-xs text-slate-600 font-medium">
+            <li><a href="#products" class="hover:text-indigo-600 transition-colors">اکانت چت‌جی‌پی‌تی پلاس</a></li>
+            <li><a href="#products" class="hover:text-indigo-600 transition-colors">اکانت جمینی پرو ۵ ترابایت</a></li>
+            <li><a href="#products" class="hover:text-indigo-600 transition-colors">اکانت کلود ۳.۵ سونات</a></li>
+            <li><a href="#about" class="hover:text-indigo-600 transition-colors">درباره سینما پنبه</a></li>
+            <li><a href="#contact" class="hover:text-indigo-600 transition-colors">اطلاعات تماس و نشانی</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Legal Links -->
+        <!-- Col 3: Enamad Standards -->
         <div>
-          <h4 class="text-sm font-bold text-white mb-4">قوانین و استانداردهای اینماد</h4>
-          <ul class="space-y-2.5 text-xs text-slate-400">
-            <li><a href="terms.html#terms" class="hover:text-indigo-400 transition-colors">قوانین و مقررات سایت</a></li>
-            <li><a href="terms.html#privacy" class="hover:text-indigo-400 transition-colors">حفظ حریم خصوصی کاربران</a></li>
-            <li><a href="terms.html#refund" class="hover:text-indigo-400 transition-colors">شرایط عودت و بازگشت وجه</a></li>
-            <li><a href="terms.html#complaint" class="hover:text-indigo-400 transition-colors text-amber-400 font-medium">سامانه ثبت و رسیدگی به شکایات</a></li>
+          <h4 class="text-sm font-bold text-slate-900 mb-4">قوانین و استانداردهای اینماد</h4>
+          <ul class="space-y-2.5 text-xs text-slate-600 font-medium">
+            <li><a href="terms.html#terms" class="hover:text-indigo-600 transition-colors">قوانین و مقررات خرید</a></li>
+            <li><a href="terms.html#privacy" class="hover:text-indigo-600 transition-colors">حفظ حریم خصوصی کاربران</a></li>
+            <li><a href="terms.html#refund" class="hover:text-indigo-600 transition-colors">شرایط عودت وجه (۷ روز مهلت)</a></li>
+            <li><a href="terms.html#complaint" class="hover:text-amber-700 transition-colors text-amber-700 font-bold">سامانه ثبت و رسیدگی به شکایات</a></li>
           </ul>
         </div>
 
         <!-- Col 4: Official Enamad Trust Seal Slot -->
         <div>
-          <h4 class="text-sm font-bold text-white mb-4">نماد اعتماد الکترونیکی (اینماد)</h4>
-          <p class="text-[11px] text-slate-400 mb-3">
+          <h4 class="text-sm font-bold text-slate-900 mb-3">نماد اعتماد الکترونیکی (اینماد)</h4>
+          <p class="text-[11px] text-slate-500 mb-3">
             تایید هویت، اعتبار فنی و صلاحیت فعالیت توسط مرکز توسعه تجارت الکترونیکی:
           </p>
           
           <!-- Enamad Container -->
-          <div id="enamad-container" class="p-4 rounded-2xl bg-slate-900 border border-slate-800 text-center flex flex-col items-center justify-center min-h-[140px] hover:border-indigo-500/50 transition-all">
+          <div id="enamad-container" class="p-4 rounded-2xl bg-slate-50 border-2 border-dashed border-slate-300 text-center flex flex-col items-center justify-center min-h-[150px] hover:border-indigo-400 transition-all">
             
             <!-- ENAMAD_CODE_INJECTION_POINT -->
-            <!-- محل تزریق کد رسمی اینماد دریافتی از پنل -->
+            <!-- محل تزریق کد رسمی اینماد کپی‌شده از پنل -->
             <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=cinemapluss.ir' class="inline-flex flex-col items-center gap-2 group">
-              <div class="w-16 h-16 rounded-xl bg-white p-2 flex items-center justify-center shadow-md">
-                <svg class="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <div class="w-16 h-16 rounded-2xl bg-white p-2.5 flex items-center justify-center shadow-md border border-slate-200 group-hover:scale-105 transition-transform">
+                <svg class="w-10 h-10 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                 </svg>
               </div>
-              <span class="text-[11px] font-semibold text-slate-300 group-hover:text-indigo-400 transition-colors">
+              <span class="text-xs font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
                 نماد اعتماد الکترونیکی
               </span>
-              <span class="text-[10px] text-slate-500">کسب‌وکار معتبر و تاییدشده</span>
+              <span class="text-[10px] text-slate-500">کسب‌وکار تاییدشده اینماد</span>
             </a>
             <!-- END_ENAMAD_CODE_INJECTION_POINT -->
 
@@ -532,9 +718,9 @@
       <!-- Copyright Notice -->
       <div class="mt-8 pt-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
         <div>
-          تمامی حقوق مادی و معنوی این وب‌سایت متعلق به <span class="text-slate-300 font-semibold">فروشگاه سینما پنبه (Panbeh Shop)</span> به مدیریت فاروق محمدی می‌باشد.
+          تمامی حقوق مادی و معنوی این وب‌سایت متعلق به <strong class="text-slate-800 font-bold">فروشگاه سینما پنبه (Panbeh Shop)</strong> به مدیریت فاروق محمدی می‌باشد.
         </div>
-        <div class="font-mono text-slate-600">
+        <div class="font-mono text-slate-500 font-bold">
           cinemapluss.ir &copy; 2026
         </div>
       </div>
